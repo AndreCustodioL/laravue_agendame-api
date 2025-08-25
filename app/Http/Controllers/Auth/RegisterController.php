@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\UserRegistered;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Resources\UserResource;
@@ -18,6 +19,7 @@ class RegisterController extends Controller
         $input = $request->validated();
 
         $user = User::create($input);
+        UserRegistered::dispatch($user);
 
         return new UserResource($user);
     }
