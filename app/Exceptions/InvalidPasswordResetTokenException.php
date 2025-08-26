@@ -5,10 +5,10 @@ namespace App\Exceptions;
 use App\Traits\RenderToJson;
 use Exception;
 
-class UserHasBeenTakenException extends Exception
+class InvalidPasswordResetTokenException extends Exception
 {
     use RenderToJson;
 
-    protected $message = 'This user has been taken.';
+    protected $message = 'Invalid password reset token.';
     protected $code = 400;
 }

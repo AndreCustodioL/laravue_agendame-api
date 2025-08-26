@@ -5,10 +5,10 @@ namespace App\Exceptions;
 use App\Traits\RenderToJson;
 use Exception;
 
-class UserHasBeenTakenException extends Exception
+class UserNotFoundException extends Exception
 {
     use RenderToJson;
 
-    protected $message = 'This user has been taken.';
+    protected $message = 'User not found.';
     protected $code = 400;
 }
